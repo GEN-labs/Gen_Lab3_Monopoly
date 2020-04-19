@@ -8,6 +8,7 @@ public class GoToJailSquare extends Square {
     }
     @Override
     public void landOn(Player p) {
+        System.out.println("Il se trouve maintenant en prison");
         p.getPiece().setLocation(jail);
     }
 }

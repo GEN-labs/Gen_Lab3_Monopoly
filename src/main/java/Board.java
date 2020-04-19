@@ -27,12 +27,12 @@ public class Board {
         int newPos = (oldLoc.getId() + fvTot) % BOARD_SIZE;
         Square newLoc = squares[newPos];
 
-        System.out.println("Deplacement : " + oldLoc.getName() + " =====> " + newLoc.getName() + "\n");
+        System.out.println("Deplacement : " + oldLoc.getName() + " =====> " + newLoc.getName());
 
         return newLoc;
     }
 
-    public Square getSquare(int id){
+    public Square getSquare(int id) throws IndexOutOfBoundsException {
         if(id >= BOARD_SIZE || id < 0){
             throw new IndexOutOfBoundsException("This square is out of the board");
         }
