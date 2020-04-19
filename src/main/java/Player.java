@@ -34,7 +34,7 @@ public class Player {
         System.out.println("Total du lancer des dés : " + fvTot);
 
         piece.setLocation(board.getSquare(piece.getLocation(), fvTot));
-
+        piece.getLocation().landOn(this);
     }
 
     public int getNetWorth() {
