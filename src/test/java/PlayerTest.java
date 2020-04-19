@@ -18,14 +18,15 @@ public class PlayerTest {
 
     @Test
     void getPlayerPieceAndSetPlayerPiece(){
-        Piece piece = new Piece("chaussure", new Square(0, "JE_SUIS_UN_SQUARE"));
+
+        Piece piece = new Piece("chaussure", new RegularSquare(0, "JE_SUIS_UN_SQUARE"));
         Player player = new Player("Nico le poireau", board, cup);
         player.setPiece(piece);
         assertEquals(player.getPiece(), piece);
     }
 
     @Test
-    void testTakeTurn(){
+    void testTakeTurn() {
         Piece piece = new Piece("chaussure", board.getSquare(0));
         Player player = new Player("Nico le poireau", board, cup);
         player.setPiece(piece);
@@ -34,9 +35,22 @@ public class PlayerTest {
         player.takeTurn();
         Square newSquare = player.getPiece().getLocation();
 
-        assertNotEquals(actualSquare,newSquare);
+        assertNotEquals(actualSquare, newSquare);
     }
 
+    @Test
+    void getInitialNetWorthTest(){
+        Player p = new Player("Maurice", board, cup);
 
+        assertEquals(Player.INITIAL_NETWORTH, p.getNetWorth());
+    }
+
+    @Test
+    void addCashTest() throws Exception {
+        Player p = new Player("Maurice", board, cup);
+        p.addCash(1000);
+
+        assertEquals(Player.INITIAL_NETWORTH + 1000, p.getNetWorth());
+    }
 
 }

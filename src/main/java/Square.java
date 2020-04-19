@@ -1,6 +1,4 @@
-
-
-public class Square {
+public abstract class Square {
 
     private String name;
     private int id;
@@ -17,5 +15,7 @@ public class Square {
     public int getId(){
         return this.id;
     }
+
+    abstract public void landOn(Player p);
 
 }
