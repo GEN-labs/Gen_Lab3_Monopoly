@@ -1,8 +1,7 @@
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
 
@@ -46,11 +45,31 @@ public class PlayerTest {
     }
 
     @Test
-    void addCashTest() throws Exception {
+    void addCashTest(){
         Player p = new Player("Maurice", board, cup);
         p.addCash(1000);
-
         assertEquals(Player.INITIAL_NETWORTH + 1000, p.getNetWorth());
     }
 
+    @Test
+    void addCashNegativeValueTest() throws Exception{
+        assertThrows(IllegalArgumentException.class, () -> {
+            Player p = new Player("Maurice", board, cup);
+            p.addCash(-200);
+        });
+    }
+
+    @Test
+    void reduceCashTest() {
+        Player p = new Player("Maurice", board, cup);
+        p.reduceCash(200);
+        assertEquals(p.getNetWorth(),Player.INITIAL_NETWORTH - 200);
+    }
+
+    @Test
+    void reduceCashZeroTest(){
+        Player p = new Player("Maurice", board, cup);
+        p.reduceCash(2000);
+        assertEquals(p.getNetWorth(),0);
+    }
 }
