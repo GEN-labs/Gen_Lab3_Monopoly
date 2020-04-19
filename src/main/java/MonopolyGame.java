@@ -8,11 +8,9 @@ public class MonopolyGame {
     private final Board board = new Board();
     private final Dice[] dices = {new Dice(), new Dice()};
     private final Cup cup = new Cup(dices);
-    private int numberOfPlayer;
 
     public MonopolyGame(int numberOfPlayer){
         //NumberOfPlayer is checked in the main console
-        this.numberOfPlayer = numberOfPlayer;
 
         this.players =  new Player[numberOfPlayer];
         for (int i = 0; i < numberOfPlayer; i++) {
@@ -38,26 +36,4 @@ public class MonopolyGame {
             System.out.println("Argent disponible : " + player.getNetWorth() + "\n");
         }
     }
-
-    public Player[] getPlayers() {
-        return players;
-    }
-
-    public Board getBoard() {
-        return board;
-    }
-
-    public Dice[] getDices() {
-        return dices;
-    }
-
-    public String toString(){
-        StringBuilder str = new StringBuilder("La partie se fait avec " + numberOfPlayer + " joueurs. \n");
-        for(Player player : players){
-            str.append(player.getName() + " joue avec " + player.getPiece().getName() + " commençant avec " + player.getNetWorth() + "$\n");
-
-        }
-        return str.toString();
-    }
-
 }

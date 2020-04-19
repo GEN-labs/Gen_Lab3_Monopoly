@@ -41,17 +41,21 @@ public class Player {
         return netWorth;
     }
 
-    public void addCash(int value){
+    public void addCash(int value) throws IllegalArgumentException{
         if(value < 0){
-            System.out.println("La valeur doit être > 0 !");
-            return;
+            throw new IllegalArgumentException("La valeur doit être > 0!");
         }
         this.netWorth += value;
     }
 
+    /*
+    @remark netWorth can't be lower than 0
+     */
     public void reduceCash(int min) {
-        //TODO check bound ? no negatif netWorth
         netWorth -= min;
+        if(netWorth < 0){
+            netWorth = 0;
+        }
     }
 
 }
