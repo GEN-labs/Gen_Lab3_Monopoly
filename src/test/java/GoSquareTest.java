@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GoSquareTest {
 
-
-
     @Test
     void goSquareTest(){
         Board board = new Board();
