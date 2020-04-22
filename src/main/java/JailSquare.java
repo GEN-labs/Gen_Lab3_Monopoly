@@ -3,5 +3,4 @@ public class JailSquare extends RegularSquare{
         super(id, "Jail");
     }
 
-
 }

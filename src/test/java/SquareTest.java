@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 
 public class SquareTest {
 
-
     @Test
     void goSquareTest(){
         Board board = new Board();

@@ -49,8 +49,8 @@ public class Player {
         this.netWorth += value;
     }
 
+    //We allow the netWorth to be negativ
     public void reduceCash(int min) {
-        //TODO check bound ? no negatif netWorth
         netWorth -= min;
     }
 
